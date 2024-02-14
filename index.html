@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prezent</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: linear-gradient(to bottom, #FFFFFF, #FFC0CB);
+        }
+        #container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="image" src="Unknown.jpeg" alt="Obrazek" width="200" height="200">
+        <br>
+        <button class="button" onclick="changePosition()">No</button>
+        <button class="button" onclick="changeImage()">Yes</button>
+    </div>
+
+    <script>
+        function changePosition() {
+            var container = document.getElementById('container');
+            var button = document.querySelector('.button');
+            var newX = Math.random() * (container.clientWidth - button.offsetWidth);
+            var newY = Math.random() * (container.clientHeight - button.offsetHeight);
+            button.style.position = 'absolute';
+            button.style.left = newX + 'px';
+            button.style.top = newY + 'px';
+        }
+
+        function changeImage() {
+            var container = document.getElementById('container');
+            var image = document.getElementById('image');
+            var newImage = document.createElement('img');
+            newImage.src = 'yay.png';
+            newImage.alt = 'Nowy obrazek';
+            newImage.width = 200;
+            newImage.height = 200;
+            container.appendChild(newImage);
+        }
+    </script>
+</body>
+</html>
